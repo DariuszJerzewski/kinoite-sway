@@ -33,5 +33,3 @@ modules:
       - brightnessctl          # Backlight control
       - pamixer                # Audio control CLI
       - playerctl              # Media playback control
-
-  - type: signing
