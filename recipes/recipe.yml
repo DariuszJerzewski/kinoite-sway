@@ -17,7 +17,10 @@ modules:
       - sway
       - swaybg
       - swayidle
-      - swaylock
+      - swaylock  
+      - sddm
+      - sddm-wayland-sway
+      - sway-config-fedora 
       
       # Official Fedora Sway Stack
       - waybar                 # Status bar
