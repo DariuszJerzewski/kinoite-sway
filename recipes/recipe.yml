@@ -3,7 +3,7 @@
 name: kinoite-sway
 description: Vanilla Fedora Atomic 44 Kinoite with the official Fedora Sway Spin.
 
-base-image: ghcr.io/ublue-os/kinoite-main
+base-image: quay.io/fedora-ostree-desktops/kinoite
 image-version: 44
 
 modules:
