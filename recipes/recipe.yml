@@ -37,4 +37,7 @@ modules:
       - pamixer                # Audio control CLI
       - playerctl              # Media playback control
 
+      # Local network connectivity from internet
+      - tailscale
+
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
