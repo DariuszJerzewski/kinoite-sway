@@ -1,0 +1,3 @@
+# Enable user access to keyboard using uinput event generator
+# Taken from: https://raw.githubusercontent.com/AntiMicroX/antimicrox/master/other/60-antimicrox-uinput.rules
+SUBSYSTEM=="misc", KERNEL=="uinput", OPTIONS+="static_node=uinput", TAG+="uaccess"
