@@ -18,11 +18,11 @@ modules:
       - sway
       - swaybg
       - swayidle
-      - swaylock  
+      - swaylock
       - sddm
       - sddm-wayland-sway
-      - sway-config-fedora 
-      
+      - sway-config-fedora
+
       # Official Fedora Sway Stack
       - waybar                 # Status bar
       - foot                   # Default terminal for Fedora Sway
@@ -30,7 +30,7 @@ modules:
       - mako                   # Notification daemon
       - xdg-desktop-portal-wlr # Screen sharing / Wayland integration
 
-      # Screenshots, Clipboard & Audio/Brightness Controls
+      # Screenshots, Clipboard & Audio/Brightness Controls - Sway mode
       - grim                   # Screenshot tool
       - slurp                  # Screen region selector
       - wl-clipboard           # Clipboard manager
@@ -40,5 +40,8 @@ modules:
 
       # Local network connectivity from internet
       - tailscale
+
+      # Terminal customization
+      - zsh
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
