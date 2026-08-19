@@ -1,0 +1,8 @@
+[Unit]
+Description=Run synchronisation script that fetches package list from a public git repository and updates local Flatpak packages
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/cross-device-flatpak-sync.sh

@@ -1,0 +1,8 @@
+[Unit]
+Description=System Healthcheck Monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/system-healthcheck-monitor-status.sh

@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodically synchronise local Flatpak changes
+
+[Timer]
+OnBootSec=15min
+OnCalendar=hourly
+Persistent=true
+Unit=cross-device-flatpak-update.service
+
+[Install]
+WantedBy=timers.target

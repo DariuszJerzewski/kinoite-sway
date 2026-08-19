@@ -54,3 +54,11 @@ modules:
   - type: script
     scripts:
       - setup-zsh.sh
+
+  - type: systemd
+    system:
+      enabled:
+        - cross-device-flatpak-sync.timer
+        - cross-device-flatpak-update.timer
+        - cross-device-flatpak-update.path
+	- system-healthcheck-monitor-status.timer

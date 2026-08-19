@@ -1,0 +1,11 @@
+[Unit]
+Description=Time when to synchronise packages from a package list
+
+[Timer]
+OnBootSec=15min
+OnCalendar=hourly
+Persistent=True
+Unit=cross-device-flatpak-sync.service
+
+[Install]
+WantedBy=timers.target

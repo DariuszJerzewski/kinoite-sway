@@ -1,0 +1,9 @@
+[Unit]
+Description=Trigger Flatpak Git sync when applications change
+
+[Path]
+PathChanged=/var/lib/flatpak/app
+Unit=cross-device-flatpak-update.service
+
+[Install]
+WantedBy=multi-user.target
