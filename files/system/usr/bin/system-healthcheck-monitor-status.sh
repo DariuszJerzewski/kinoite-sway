@@ -7,8 +7,10 @@ DEVICE="$(hostname)"
 failed_tests=0
 
 # Check for failed systemd units
-if ! systemctl --failed --quiet; then
-    failed_tests=1
+failed_units="$(systemctl --failed --no-legend --no-pager)"
+
+if [[ -n "$failed_units" ]]; then
+    failed_tests+=1
 fi
 
 if (( failed_tests == 0 )); then
