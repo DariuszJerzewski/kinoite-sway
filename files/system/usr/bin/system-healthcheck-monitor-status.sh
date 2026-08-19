@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-HEALTH_URL="https://system-healthcheck-monitor.bearded-draco.ts.net/health"
+HEALTH_URL="https://system-healthcheck-monitor.bearded-draco.ts.net/status"
 DEVICE="$(hostname)"
 
 failed_tests=0
