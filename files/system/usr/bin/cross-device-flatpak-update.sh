@@ -29,7 +29,8 @@ NEW_LIST="$tmpdir/new-list.txt"
 flatpak list \
     --system \
     --app \
-    --columns=application \
+    --columns=application,origin \
+    | awk '$2 == "flathub" { print $1 }' \
     | sed '/^[[:space:]]*$/d' \
     | sort -u > "$CURRENT"
 
