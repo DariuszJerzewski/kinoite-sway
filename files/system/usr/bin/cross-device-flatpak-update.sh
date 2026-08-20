@@ -13,6 +13,7 @@ LOCK_FILE="/run/lock/cross-device-flatpak-push.lock"
 
 mkdir -p "$SYNC_ROOT"
 
+# Get hold of lock file, otherwise exit
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0
 
@@ -55,15 +56,12 @@ else
     : > "$REMOTE"
 fi
 
-# Establish our previous local state.
-#
-# On first run, using the repository as the baseline means we only
-# push things that are actually different on this machine.
-if [[ -f "$STATE_FILE" ]]; then
-    LAST="$STATE_FILE"
-else
-    LAST="$REMOTE"
+if [[ ! -f "$STATE_FILE" ]]; then
+    cp "$CURRENT" "$STATE_FILE"
+    exit 0
 fi
+
+LAST="$STATE_FILE"
 
 # What changed locally since our last successful sync?
 comm -13 <(sort -u "$LAST") "$CURRENT" > "$ADDED"
