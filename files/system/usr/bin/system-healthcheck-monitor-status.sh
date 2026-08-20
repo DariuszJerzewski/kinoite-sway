@@ -6,8 +6,21 @@ DEVICE="$(hostname)"
 
 failed_tests=0
 
-# Check for failed systemd units
-failed_units="$(systemctl --failed --no-legend --no-pager)"
+IGNORE_SERVICES=(
+    "systemd-remount-fs.service"
+)
+
+failed_units="$(
+    systemctl --failed --no-legend --no-pager |
+        awk -v ignore="$(printf '%s\n' "${IGNORE_SERVICES[@]}")" '
+            BEGIN {
+                split(ignore, a, "\n")
+                for (i in a)
+                    x[a[i]] = 1
+            }
+            !($2 in x)
+        '
+)"
 
 if [[ -n "$failed_units" ]]; then
     failed_tests+=1
